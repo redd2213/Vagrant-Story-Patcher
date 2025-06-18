@@ -33,11 +33,6 @@ int main() {
     ImGui_ImplSDL2_InitForOpenGL(window, gl_context);
     ImGui_ImplOpenGL3_Init("#version 130");
 
-    // State
-    char iso_path[256] = "";
-    char patch_path[256] = "";
-    char log_msg[512] = "";
-    bool patch_applied = false;
 
 	// Load music file for audio playback
     Mix_Music* bgm = Mix_LoadMUS("VSPatcher.mp3");
@@ -133,7 +128,7 @@ int main() {
 		ImGui::Separator();
         ImGui::End();
 
-		// Background Music playback
+
 
 
 
