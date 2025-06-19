@@ -18,7 +18,7 @@ Visual Studio (optional) – Used as the development environment.
 
 Here is a curated list of useful mods and tools for Vagrant Story, with direct links and titles:
 
-- [VS Zenith - A comprehensive modding site](https://vszenith.wordpress.com/) -by vagrantstory2000
+- [VS Zenith - A comprehensive mod ](https://vszenith.wordpress.com/) -by vagrantstory2000
 - [VSTrack - Save Editor](https://github.com/tomasz-rozanski/vstrack) -by Tomasz Różański
 - [Vagrant Story Lua Script - Automation and scripting tools](https://github.com/notdodgeball/vagrant-story-lua-script) -by notdodgeball
 - [VSViewer - Visualizer for Vagrant Story assets](https://github.com/MercurialForge/VSViewer) -by MercurialForge
