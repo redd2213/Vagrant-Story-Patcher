@@ -1,4 +1,3 @@
-#define SDL_MAIN_HANDLED
 #define _CRT_SECURE_NO_WARNINGS
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
@@ -32,7 +31,7 @@ std::string OpenFileDialog(const char* filter) {
     return "";
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     // Initialize variables
     char iso_path[1024] = "";
     char patch_path[1024] = "";
@@ -78,8 +77,7 @@ int main() {
     ImGui_ImplSDL2_InitForOpenGL(window, gl_context);
     ImGui_ImplOpenGL3_Init("#version 130");
 
-
-	// Load music file for audio playback
+    // Load music
     Mix_Music* bgm = Mix_LoadMUS("VSPatcher.mp3");
     Mix_VolumeMusic(10); // volume (0-128)
     if (!bgm) {
@@ -290,7 +288,23 @@ int main() {
         ImGui::SetCursorPosX((windowWidth - checkboxWidth) * 0.5f);
         ImGui::Checkbox("Create a Backup of The .bin Before Patching", &create_backup);
 
+        ImGui::Dummy(ImVec2(0.0f, 16.0f));
 
+		// Apply Patch Button & Progress Bar
+        float applyBtnWidth = 200.0f;
+
+        if (patchState.status == "Patching..." || patchState.status == "Creating Backup (Please Wait)...") {
+            
+            float textW = ImGui::CalcTextSize(patchState.status.c_str()).x;
+            ImGui::SetCursorPosX((windowWidth - textW) * 0.5f);
+            ImGui::Text("%s", patchState.status.c_str());
+
+            ImGui::SetCursorPosX((windowWidth - applyBtnWidth) * 0.5f);
+            ImGui::ProgressBar(patchState.progress, ImVec2(applyBtnWidth, 0.0f));
+        }
+        else {
+            
+            ImGui::SetCursorPosX((windowWidth - applyBtnWidth) * 0.5f);
 
             if (ImGui::Button("Apply Patch", ImVec2(applyBtnWidth, 0))) {
                 if (std::filesystem::exists(iso_path) && std::filesystem::exists(patch_path)) {
