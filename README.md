@@ -1,5 +1,5 @@
 # VSPatcher
-- Universal patch utility for Vagrant Story's ISO. This project was developed using the following libraries and tools:
+Universal patch utility for Vagrant Story's ISO. This project was developed using the following libraries and tools:
 - C++17 – Core programming language.
 - SDL2 – Used for window management, event handling.
 - SDL_mixer – For playing background music (MP3).
