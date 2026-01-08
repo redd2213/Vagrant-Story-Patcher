@@ -6,7 +6,7 @@
 #include <io.h>
 #include <fcntl.h>
 #include <sys/stat.h>
-//Patcher logic learned and upgraded from ppf project
+//Patcher logic inspired by PPF-O-Matic's implementation
 // Helper to get file size
 inline __int64 GetFileSize(int fd) {
     long long current = _lseeki64(fd, 0, SEEK_CUR);

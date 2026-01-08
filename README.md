@@ -1,22 +1,46 @@
 # VSPatcher
-Universal patch loader for Vagrant Story's ISO.
-This project was developed using the following libraries and tools:
+Universal patch utility for Vagrant Story's ISO. This project was developed using the following libraries and tools:
+- C++17 – Core programming language.
+- SDL2 – Used for window management, event handling.
+- SDL_mixer – For playing background music (MP3).
+- OpenGL – For rendering graphics.
+- Dear ImGui – Immediate mode GUI for rendering the patcher UI.
+- Visual Studio – Used as the development environment.
 
-C++17 – Core programming language.
+# Description:
+This tool allows you to easily apply PPF patches to your Vagrant Story 
+(or other PS1) game files. It handles the patching process automatically 
+and includes a safety backup feature.
 
-SDL2 – Used for window management, event handling.
+# Key Features:
+- Automatic backup creation (safeguards your original ISO)
+- Simple graphical interface & music player for our nostalgic track :)
 
-SDL_mixer – For playing background music (MP3).
+# Instructions:
+1. Extract all files in this ZIP to a folder.
+2. Run "VSPatcher.exe".
+3. Click "Browse ISO" and select your game file (.bin, .iso, .img).
+4. Click "Browse Patch" and select your patch file (.ppf).
+5. Ensure "Create a Backup" is checked if you want to keep your original file.
+6. Click "Apply Patch".
 
-OpenGL – For rendering graphics.
+# Troubleshooting:
+- If the app doesn't open, ensure all DLL files are in the same folder as the .exe.
+- If music doesn't play, check your system volume mixer.
 
-Dear ImGui – Immediate mode GUI for rendering the patcher UI.
+# Credits:
+- Developed by redd2213
+- UI powered by Dear ImGui
+- Audio/Video backend by SDL2
+- Patch logic inspired by PPF-O-MATIC
 
-Visual Studio – Used as the development environment.
+# Disclaimer:
+This software is provided "as is", without warranty of any kind. 
+Always keep a backup of your game files before patching.
 
 # Vagrant Story Mods & Tools List
 
-Here is a curated list of useful mods and tools for Vagrant Story, with direct links and titles:
+Here is a curated list of mods and tools for Vagrant Story:
 
 - [VS Zenith - A comprehensive mod ](https://vszenith.wordpress.com/) -by vagrantstory2000
 - [VSTrack - Real-time tracker](https://github.com/tomasz-rozanski/vstrack) -by Tomasz Różański
