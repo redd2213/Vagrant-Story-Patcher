@@ -11,6 +11,7 @@
 #include <filesystem>
 #include <thread> 
 #include "Patcher.h"
+#include "ASCII.h"
 #include <windows.h>
 #include <commdlg.h>
 
@@ -50,7 +51,8 @@ int main(int argc, char* argv[]) {
     }
 
     // Setup Window
-    SDL_Window* window = SDL_CreateWindow("VSPatcher",
+	// Updated window name to match version
+    SDL_Window* window = SDL_CreateWindow("VSPatcher v1.1",
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
         800, 630,
         SDL_WINDOW_OPENGL);
@@ -73,6 +75,9 @@ int main(int argc, char* argv[]) {
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     ImGui::StyleColorsClassic();
+
+    // Disable imgui.ini file creation that used to save in the Patch folder
+	io.IniFilename = NULL;
 
     ImGui_ImplSDL2_InitForOpenGL(window, gl_context);
     ImGui_ImplOpenGL3_Init("#version 130");
@@ -142,72 +147,30 @@ int main(int argc, char* argv[]) {
         ImVec2 oldSpacing = ImGui::GetStyle().ItemSpacing;
         ImGui::GetStyle().ItemSpacing = ImVec2(0, 0);
 
-        ImGui::TextColored(ImVec4(1.0f, 1.0f, 1.0f, 1.0f),
+        //LOGO FIRST LAYER
 
-            "                                                                                                .\n"
+        //For Logo brightness improvement, I am drawing it again but with a 1px offset so I am saving its first position
+        ImVec2 logoStartPos = ImGui::GetCursorPos();
+        //Changed from TextColored display to TextUnformatted so it removes the size limit that restricted me to using 2xTextColored for the logo
+		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
+		//Moved ASCII Logo to ASCII.h for better main file readability
+		ImGui::TextUnformatted(ASCII_LOGO);
 
-            "                                                                                               ..\n"
+		ImGui::PopStyleColor();
 
-            "                                                                                              .--\n"
+		//LOGO SECOND LAYER
 
-            "                                                                                              .--\n"
+		//Modified the position for it to have the 1px offset
+        ImGui::SetCursorPos(ImVec2(logoStartPos.x + 1.0f, logoStartPos.y));
+        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
+        ImGui::TextUnformatted(ASCII_LOGO);
+        ImGui::PopStyleColor();
 
-            "                                                                                              _--\n"
-
-            "                                                                                              _--\n"
-
-            "                                                                                              _--\n"
-
-            "                .      ...    .....                                                    ..______--_______.     __---_.                     _--------_                  .-_.        ._.              \n"
-
-            "       _-----------_  ._----------_.   _--____----_---------_  _----------------.  _-----------------------_---.   ._-----------------__---__..__-----_  ._---_----_._------. ._-----__ .         \n"
-
-            "          _----.          _----.     _--_      _--._--_. _---_    ._---_    _---_     ._--_..._--....._..  _--_      .--_   _--_  _--__--_        ._---_  .--_   _---_ _---.     --_               \n"
-
-            "           .---_          _-_--_    _--_           _--_.  _---    _-_---.   .----_     _--    _--.         _--_             _--_     _--.           _---_ .---    _---  ._--.  .--.             \n"
-
-            "            _--_         .-_._--.  .--_            _--_.  _---    _-._--_   .--__-_    _--    _--.        .----_            _--_     --_      ..     .---_.---    _---    _--__--.              \n"
-
-            "             _--.        _-_ _--_  _--_            .--_  _---_   .-_ ._--_  .--_ _-_   _--    _--.        ._-----_          .--_    _--_     ._-_     _---._--   _---_     _---_               \n"
-
-            "             .---     __ -_.  _--__---_     ._____ _---_----_ ._ _-_  _---_----_  _-.  _-_    _--.          ._-----_.       .--_    _--_    _----_    .---_---__----_       ---_              ");
-
-
-
-        ImGui::TextColored(ImVec4(1.0f, 1.0f, 1.0f, 1.0f),
-
-            "              _--_    _---_   _-------_      __---..-------_  _---_.  ._---__--_   _-. _-_    _--.             _------_.    _--_    _--_      __.     .--_._-------.        _--_              \n"
-
-            "              ._--     .---___----__--_.      _---._--_._--_    _--___-----..--_    _-__-_    _--                __-----_   _--_     ---_             _--..---._---_        _--.             \n"
-
-            "               _--_    _-_._-_..---_---_.     _---._--_  ---_  .--._--_ _--_.--_     _---_    _--        ..        _----.   _--_     .---_           .--_ .---  _---.       _--_             \n"
-
-            "                _-_.  ._-       _--_.---_.    _---._--_  .---  _-_      .---_--_      _--_    _--        __         .--_    _--_      ._---_.      ._--_  ._--   .---.      _--_             \n"
-
-            "                .--_.__--___. ._----_.__---____--__----_  _--__--_...  ._-------___   ._-_    _--        _-.        .--_  _-----__.     __----____---_   ._---_.  ._--.   ._----_.           \n"
-
-            "                 _--_.__                  ...              _--_......                  .-_    _--        _--.       _-_.                   .__--__.                 _-_.   .                 \n"
-
-            "                  _-___.                                    .-_.                        ._    _--        ___--_   ._-_                                               ._-.                      \n"
-
-            "                  _--__                                      ._-.                             _--              ....                                                    ._-_                    \n"
-
-            "                  ._--_                                        .__                            _--.                                                                                               \n"
-
-            "                   _-_.                                          ..                           ._-                                                                                                \n"
-
-            "                    __                                                                        .__                                                                                                \n"
-
-            "                                                                                               __                                                                                                \n"
-
-            "                                                                                               _.                                                                                                \n"
-
-        );
         ImGui::GetStyle().ItemSpacing = oldSpacing;
         ImGui::Dummy(ImVec2(0.0f, 16.0f));
 
         ImGui::SetWindowFontScale(1.0f);
-        ImGui::Text("                          Vagrant Story Universal Mod/Hack ISO Patcher - Version 1.0");
+        ImGui::Text("                          Vagrant Story Universal Mod/Hack ISO Patcher - Version 1.1");
 
         // Links
         const char* modListTxt = "[Mod List Link]";
@@ -279,6 +242,7 @@ int main(int argc, char* argv[]) {
             std::string path = OpenFileDialog("PPF Patch Files\0*.ppf\0All Files\0*.*\0");
             if (!path.empty()) {
                 strncpy(patch_path, path.c_str(), sizeof(patch_path) - 1);
+				patch_path[sizeof(patch_path) - 1] = '\0'; // Ensure null-termination
             }
         }
 
