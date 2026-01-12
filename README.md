@@ -1,11 +1,16 @@
 # VSPatcher
-Universal patch utility for Vagrant Story's ISO. This project was developed using the following libraries and tools:
-- C++17 – Core programming language.
+An open-source, universal patch utility for Vagrant Story. This project was developed using C++17 and the following libraries and tools:
 - SDL2 – Used for window management, event handling.
-- SDL_mixer – For playing background music (MP3).
+- SDL_mixer – For playing background music.
 - OpenGL – For rendering graphics.
 - Dear ImGui – Immediate mode GUI for rendering the patcher UI.
 - Visual Studio – Used as the development environment.
+
+Beyond its function as a patching utility, this project aims to serve as a "hub" for the Vagrant Story modding community. 
+
+My goal is to aggregate and promote the incredible work done by other developers, to ensure they remain accessible to new players and veterans alike. 
+
+You can find a curated list of these community projects at the bottom of this document.
 
 # Description:
 This tool allows you to easily apply PPF patches to your Vagrant Story 
@@ -13,8 +18,10 @@ This tool allows you to easily apply PPF patches to your Vagrant Story
 and includes a safety backup feature.
 
 # Key Features:
-- Automatic backup creation (safeguards your original ISO)
+- Full source code available on this repository.
+- Automatic backup creation (safeguards your original file)
 - Simple graphical interface & music player for our nostalgic track :)
+- Works with standard .bin/.cue rips and .iso files.
 
 # Instructions:
 1. Extract all files in this ZIP to a folder.
@@ -42,13 +49,13 @@ Always keep a backup of your game files before patching.
 
 Here is a curated list of mods and tools for Vagrant Story:
 
-- [VS Zenith - A comprehensive mod ](https://vszenith.wordpress.com/) -by vagrantstory2000
-- [VSTrack - Real-time tracker](https://github.com/tomasz-rozanski/vstrack) -by Tomasz Różański
-- [Vagrant Story Lua Script](https://github.com/notdodgeball/vagrant-story-lua-script) -by notdodgeball
-- [VSViewer](https://github.com/MercurialForge/VSViewer) -by MercurialForge
-- [VSTools](https://github.com/morris/vstools) -by Morris
-- [Vagrant Story Unity Parser](https://github.com/korobetski/Vagrant-Story-Unity-Parser) -by korobetski
-- [VSStatsEditor](https://github.com/jaythreee/VSStatsEditor) -by jaythreee
-- [GodHands](https://github.com/collinsmichael/GodHands/) -by collinsmichael
-- [Vagrant Story Randomizer](https://github.com/ChaoticBrave/VagrantStoryRandomizer) -by ChaoticBrave
-- [Vagrant Story Tools & Forum Discussion](https://ffhacktics.com/smf/index.php?topic=8494.0) -by Valendian
+- [VS Zenith - A comprehensive mod](https://vszenith.wordpress.com/) - by vagrantstory2000
+- [VSTrack - Real-time tracker](https://github.com/tomasz-rozanski/vstrack) - by Tomasz Różański
+- [Vagrant Story Lua Script](https://github.com/notdodgeball/vagrant-story-lua-script) - by notdodgeball
+- [VSViewer](https://github.com/MercurialForge/VSViewer) - by MercurialForge
+- [VSTools](https://github.com/morris/vstools) - by Morris
+- [Vagrant Story Unity Parser](https://github.com/korobetski/Vagrant-Story-Unity-Parser) - by korobetski
+- [VSStatsEditor](https://github.com/jaythreee/VSStatsEditor) - by jaythreee
+- [GodHands](https://github.com/collinsmichael/GodHands/) - by collinsmichael
+- [Vagrant Story Randomizer](https://github.com/ChaoticBrave/VagrantStoryRandomizer) - by ChaoticBrave
+- [Vagrant Story Tools & Forum Discussion](https://ffhacktics.com/smf/index.php?topic=8494.0) - by Valendian
